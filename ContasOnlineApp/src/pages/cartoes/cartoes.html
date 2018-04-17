@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Cartões
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page4">
+  <button id="cartoes-button1" ion-button color="positive" block>
+    Novo Cartão
+  </button>
+
+  <ion-card id="cartoes-card21" *ngFor="let c of cartoes">
+    <ion-list>
+      <ion-item id="cartoes-list-item6">
+        <ion-thumbnail item-left>
+          <img />
+        </ion-thumbnail>
+        <h2>
+          Limite
+        </h2>
+        
+          {{c.limite | currency:'BRL':true:'1.2-2'}} 
+        
+      </ion-item>
+      <ion-item id="cartoes-list-item-container2">
+        <div id="cartoes-markdown2" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">
+            Previsão de fatura : {{c.previsaoDeFatura | currency:'BRL':true:'1.2-2'}} 
+          </p>
+        </div>
+      </ion-item>
+      <ion-item color="assertive" id="cartoes-list-item7">
+        <ion-icon name="card" item-left></ion-icon>
+        Vencimento : {{c.vencimento}}
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>
