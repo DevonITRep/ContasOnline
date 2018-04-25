@@ -8,6 +8,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using ContasOnlineModel.Interfaces;
+using ContasOnlineApi.Services;
+using MongoDB.Driver;
+using ContasOnlineModel.Modelo;
 
 namespace ContasOnlineApi
 {
@@ -23,8 +27,17 @@ namespace ContasOnlineApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddMvc();
 
+            //Configurar o context do MongoBD
+            services.Configure<MongoDBSettings>(Options =>
+            {
+                Options.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
+                Options.Database = Configuration.GetSection("MongoConnection:Database").Value;
+            });
+            
+            //Configura os Cors
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll",
@@ -41,6 +54,7 @@ namespace ContasOnlineApi
             }
 
             app.UseMvc();
+                        
         }
     }
 }
