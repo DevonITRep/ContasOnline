@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Despesa
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page5">
+  <form id="despesa-form1">
+    <ion-item id="despesa-toggle2">
+      <ion-label>
+        Cartão de Crédito ?
+      </ion-label>
+      <ion-toggle color="positive" checked="false" (ionChange)="validaCartaoDeCredito($event)"></ion-toggle>
+    </ion-item>
+    <div class="spacer" style="width:300px;height:13px;" id="despesa-spacer3" [hidden]="!utilizaCartaoDeCredito"></div>
+    <ion-item id="despesa-select5" [hidden]="!utilizaCartaoDeCredito">
+      <ion-label>
+        Qual Cartão de Crédito
+      </ion-label>
+      <ion-select name="">
+        <ion-option *ngFor="let cartao of listaDeCartoes" [value]="cartao._id">{{cartao.nomeDoCartao}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <div class="spacer" style="width:300px;height:13px;" id="despesa-spacer6" [hidden]="!utilizaCartaoDeCredito"></div>
+    <ion-item id="despesa-toggle3" [hidden]="!utilizaCartaoDeCredito">
+      <ion-label>
+        Parcelamento ?
+      </ion-label>
+      <ion-toggle color="positive" checked="false" (ionChange)="validaParcelamento($event)"></ion-toggle>
+    </ion-item>
+    <div class="spacer" style="width:300px;height:13px;" id="despesa-spacer1" [hidden]="!utilizaQuantidadeDeParcelas"></div>
+    <ion-item id="despesa-input2" [hidden]="!utilizaQuantidadeDeParcelas">
+      <ion-label>
+        Quantidade de Parcelas
+      </ion-label>
+      <ion-input type="number" placeholder=""></ion-input>
+    </ion-item>
+    <div class="spacer" style="width:300px;height:13px;" id="despesa-spacer4"></div>
+    <ion-item id="despesa-select3" [hidden]="utilizaCartaoDeCredito">
+      <ion-label>
+        Conta de Saida
+      </ion-label>
+      <ion-select name="ContaDeSaida"></ion-select>
+    </ion-item>
+    <div class="spacer" style="width:300px;height:13px;" id="despesa-spacer5"></div>
+    <ion-item id="despesa-select1">
+      <ion-label>
+        Categoria
+      </ion-label>
+      <ion-select name="Categoria">
+        <ion-option *ngFor="let categoria of listaDeCategorias" [value]="categoria._id">{{categoria.nome}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <div class="spacer" style="width:300px;height:13px;" id="despesa-spacer2"></div>
+    <ion-item id="despesa-input3">
+      <ion-label>
+        Valor
+      </ion-label>
+      <ion-input type="number" placeholder=""></ion-input>
+    </ion-item>
+  </form>
+  <form id="despesa-form3">
+    <ion-item id="despesa-textarea1">
+      <ion-label>
+        Observação
+      </ion-label>
+      <ion-textarea placeholder=""></ion-textarea>
+    </ion-item>
+  </form>
+  <button id="despesa-button2" ion-button color="positive" block>
+    Registrar Gasto
+  </button>
+</ion-content>

@@ -10,6 +10,8 @@ import { AutenticacaoPage } from '../pages/autenticacao/autenticacao';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { CartoesPage } from '../pages/cartoes/cartoes';
+import { BancosPage } from '../pages/bancos/bancos';
+import { DespesasPage } from '../pages/despesas/despesas';
 
 
 
@@ -32,8 +34,10 @@ export class MyApp {
       { title: 'List', component: ListPage },
 	    { title: 'Autenticacao', component: AutenticacaoPage },
       { title: 'LoginPage', component: LoginPage },
-      { title: 'Cartões', component: CartoesPage }
-      
+      { title: 'Cartões', component: CartoesPage },
+      { title: 'Bancos', component: BancosPage },
+      { title: 'Despesas', component: DespesasPage },
+     
     ];
 
   }

@@ -18,7 +18,10 @@ import { Configuration } from '../app/app.constants';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ng2-currency-mask/src/currency-mask.config";
- 
+import { CurrencyPipe } from '@angular/common';
+import { BancosPage } from '../pages/bancos/bancos'; 
+import { DespesasPage } from '../pages/despesas/despesas';
+
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     align: "right",
     allowNegative: true,
@@ -38,7 +41,9 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     AutenticacaoPage,
     LoginPage,
     SignupPage,
-    CartoesPage
+    CartoesPage,
+    BancosPage,
+    DespesasPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,9 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     AutenticacaoPage,
     LoginPage,
     SignupPage,
-    CartoesPage
+    CartoesPage,
+    BancosPage,
+    DespesasPage
   ],
   providers: [
 	  UsuarioService,
@@ -67,7 +74,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     HttpClientModule,
     Configuration,
     SlimLoadingBarService,
-    { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }
+    { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
+    CurrencyPipe
   ]
 })
 export class AppModule {}

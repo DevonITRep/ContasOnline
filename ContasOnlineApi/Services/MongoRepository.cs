@@ -30,6 +30,11 @@ namespace ContasOnlineApi.Services
         }
 
         public IMongoCollection<Banco> bancos => _database.GetCollection<Banco>("Bancos");
+        public IMongoCollection<Cartao> cartoes => _database.GetCollection<Cartao>("Cartoes");
+        public IMongoCollection<Conta> contas => _database.GetCollection<Conta>("Contas");
+        public IMongoCollection<Categoria> categorias => _database.GetCollection<Categoria>("Categorias");
+
+
 
 
 
