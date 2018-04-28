@@ -21,20 +21,21 @@ export class DataService {
     }
 
     public getAll<T>(): Observable<T> {
+        console.log('URL :=' + this.actionUrl + this._apiName);
         return this.http.get<T>(this.actionUrl + this._apiName + '/');
     }
 
-    public getSingle<T>(id: number): Observable<T> {
+    public getSingle<T>(id: string): Observable<T> {
         return this.http.get<T>(this.actionUrl+ this._apiName + '/' + id);
     }
 
-    public add<T>(itemName: string): Observable<T> {
-        const toAdd = JSON.stringify({ ItemName: itemName });
-
+    public add<T>(itemName: any): Observable<T> {
+        const toAdd = JSON.stringify(itemName);
+        console.log('Objeto :=' + toAdd);    
         return this.http.post<T>(this.actionUrl + this._apiName + '/', toAdd);
     }
 
-    public update<T>(id: number, itemToUpdate: any): Observable<T> {
+    public update<T>(id: string, itemToUpdate: any): Observable<T> {
         return this.http
             .put<T>(this.actionUrl + this._apiName + '/' + id, JSON.stringify(itemToUpdate));
     }
