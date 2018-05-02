@@ -21,6 +21,8 @@ import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ng2-currency-mask/src/
 import { CurrencyPipe } from '@angular/common';
 import { BancosPage } from '../pages/bancos/bancos'; 
 import { DespesasPage } from '../pages/despesas/despesas';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import {CustomInterceptor} from '../../src/services/dataService';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     align: "right",
@@ -75,6 +77,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     Configuration,
     SlimLoadingBarService,
     { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
+    { provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true },
     CurrencyPipe
   ]
 })

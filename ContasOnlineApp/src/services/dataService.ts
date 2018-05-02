@@ -52,6 +52,7 @@ export class CustomInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if (!req.headers.has('Content-Type')) {
             req = req.clone({ headers: req.headers.set('Content-Type', 'application/json') });
+            console.log('intercept -------------------');
         }
 
         req = req.clone({ headers: req.headers.set('Accept', 'application/json') });
