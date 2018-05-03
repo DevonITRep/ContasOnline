@@ -6,10 +6,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { AutenticacaoPage } from '../pages/autenticacao/autenticacao';
 import { LoginPage } from '../pages/login/login';
 import { Facebook } from '@ionic-native/facebook';
-import { SignupPage } from '../pages/signup/signup';
 import { CartoesPage } from '../pages/cartoes/cartoes';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -23,6 +21,14 @@ import { BancosPage } from '../pages/bancos/bancos';
 import { DespesasPage } from '../pages/despesas/despesas';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {CustomInterceptor} from '../../src/services/dataService';
+import { IonicStorageModule } from '@ionic/storage';
+import { RegisterPage } from "../pages/register/register";
+import {NotificationsPage} from "../pages/notifications/notifications";
+import {SearchLocationPage} from "../pages/search-location/search-location";
+import {TripDetailPage} from "../pages/trip-detail/trip-detail";
+import {TripsPage} from "../pages/trips/trips";
+import {SettingsPage} from "../pages/settings/settings";
+import {CheckoutTripPage} from "../pages/checkout-trip/checkout-trip";
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     align: "right",
@@ -40,30 +46,44 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     MyApp,
     HomePage,
     ListPage,
-    AutenticacaoPage,
     LoginPage,
-    SignupPage,
     CartoesPage,
     BancosPage,
-    DespesasPage
+    DespesasPage,
+    NotificationsPage,
+    SearchLocationPage,
+    TripDetailPage,
+    TripsPage,
+    SettingsPage,
+    CheckoutTripPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    IonicStorageModule.forRoot({
+      name: '__ionic3_start_theme',
+        driverOrder: ['indexeddb', 'sqlite', 'websql']
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     ListPage,
-    AutenticacaoPage,
     LoginPage,
-    SignupPage,
     CartoesPage,
     BancosPage,
-    DespesasPage
+    DespesasPage,
+    NotificationsPage,
+    SearchLocationPage,
+    TripDetailPage,
+    TripsPage,
+    SettingsPage,
+    CheckoutTripPage,
+    RegisterPage
   ],
   providers: [
 	  UsuarioService,

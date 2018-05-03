@@ -5,14 +5,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { AutenticacaoPage } from '../pages/autenticacao/autenticacao';
 
 import { LoginPage } from '../pages/login/login';
-import { SignupPage } from '../pages/signup/signup';
 import { CartoesPage } from '../pages/cartoes/cartoes';
 import { BancosPage } from '../pages/bancos/bancos';
 import { DespesasPage } from '../pages/despesas/despesas';
-
 
 
 @Component({
@@ -32,8 +29,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-	    { title: 'Autenticacao', component: AutenticacaoPage },
-      { title: 'LoginPage', component: LoginPage },
+      { title: 'Login', component: LoginPage },
       { title: 'Cartões', component: CartoesPage },
       { title: 'Bancos', component: BancosPage },
       { title: 'Despesas', component: DespesasPage },
