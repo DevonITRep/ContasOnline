@@ -29,6 +29,7 @@ import {TripDetailPage} from "../pages/trip-detail/trip-detail";
 import {TripsPage} from "../pages/trips/trips";
 import {SettingsPage} from "../pages/settings/settings";
 import {CheckoutTripPage} from "../pages/checkout-trip/checkout-trip";
+import { OneSignal } from '@ionic-native/onesignal';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     align: "right",
@@ -98,7 +99,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     SlimLoadingBarService,
     { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
     { provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true },
-    CurrencyPipe
+    CurrencyPipe,
+    OneSignal
   ]
 })
 export class AppModule {}
