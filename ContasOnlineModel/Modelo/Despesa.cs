@@ -20,5 +20,6 @@ namespace ContasOnlineModel.Modelo
         public Decimal Valor { get; set; }
         public String Observacao { get; set; }
         public DateTime DataDeCadastro { get; set; }
+
     }
 }

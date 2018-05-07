@@ -1,0 +1,11 @@
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineModel\bin\Release\netcoreapp2.0\ContasOnlineModel.deps.json
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineModel\bin\Release\netcoreapp2.0\ContasOnlineModel.dll
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineModel\bin\Release\netcoreapp2.0\ContasOnlineModel.pdb
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineModel\bin\Release\netcoreapp2.0\OneSignal.SDK.dll
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineModel\bin\Release\netcoreapp2.0\OneSignal.SDK.pdb
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineModel\obj\Release\netcoreapp2.0\ContasOnlineModel.csprojResolveAssemblyReference.cache
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineModel\obj\Release\netcoreapp2.0\ContasOnlineModel.csproj.CoreCompileInputs.cache
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineModel\obj\Release\netcoreapp2.0\ContasOnlineModel.AssemblyInfoInputs.cache
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineModel\obj\Release\netcoreapp2.0\ContasOnlineModel.AssemblyInfo.cs
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineModel\obj\Release\netcoreapp2.0\ContasOnlineModel.dll
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineModel\obj\Release\netcoreapp2.0\ContasOnlineModel.pdb

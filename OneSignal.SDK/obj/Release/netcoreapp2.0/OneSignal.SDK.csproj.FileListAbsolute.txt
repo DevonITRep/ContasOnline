@@ -1,0 +1,9 @@
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\OneSignal.SDK\bin\Release\netcoreapp2.0\OneSignal.SDK.deps.json
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\OneSignal.SDK\bin\Release\netcoreapp2.0\OneSignal.SDK.dll
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\OneSignal.SDK\bin\Release\netcoreapp2.0\OneSignal.SDK.pdb
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\OneSignal.SDK\obj\Release\netcoreapp2.0\OneSignal.SDK.csprojResolveAssemblyReference.cache
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\OneSignal.SDK\obj\Release\netcoreapp2.0\OneSignal.SDK.csproj.CoreCompileInputs.cache
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\OneSignal.SDK\obj\Release\netcoreapp2.0\OneSignal.SDK.AssemblyInfoInputs.cache
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\OneSignal.SDK\obj\Release\netcoreapp2.0\OneSignal.SDK.AssemblyInfo.cs
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\OneSignal.SDK\obj\Release\netcoreapp2.0\OneSignal.SDK.dll
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\OneSignal.SDK\obj\Release\netcoreapp2.0\OneSignal.SDK.pdb

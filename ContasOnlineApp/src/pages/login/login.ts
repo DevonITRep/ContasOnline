@@ -2,15 +2,35 @@ import {Component} from "@angular/core";
 import {NavController, AlertController, ToastController, MenuController} from "ionic-angular";
 import {HomePage} from "../home/home";
 import {RegisterPage} from "../register/register";
+import { AuthService } from '../../services/auth.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
+  loginForm: FormGroup;
+	loginError: string;
 
-  constructor(public nav: NavController, public forgotCtrl: AlertController, public menu: MenuController, public toastCtrl: ToastController) {
+
+  constructor(
+    public nav: NavController, 
+    public forgotCtrl: AlertController, 
+    public menu: MenuController, 
+    public toastCtrl: ToastController,
+    private auth: AuthService,
+    fb: FormBuilder) 
+  {
+  
     this.menu.swipeEnable(false);
+  
+    this.loginForm = fb.group({
+			email: ['', Validators.compose([Validators.required, Validators.email])],
+			password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
+		});
+
   }
 
   // go to register page
@@ -20,8 +40,22 @@ export class LoginPage {
 
   // login and go to home page
   login() {
-    this.nav.setRoot(HomePage);
-  }
+		let data = this.loginForm.value;
+
+		if (!data.email) {
+			return;
+		}
+
+		let credentials = {
+			email: data.email,
+			password: data.password
+		};
+		this.auth.signInWithEmail(credentials)
+			.then(
+				() => this.nav.setRoot(HomePage),
+				error => this.loginError = error.message
+			);
+	}
 
   forgotPass() {
     let forgot = this.forgotCtrl.create({
@@ -59,6 +93,30 @@ export class LoginPage {
       ]
     });
     forgot.present();
+  }
+
+  loginWithGoogle() {
+    this.auth.signInWithGoogle()
+      .then(
+        () => this.nav.setRoot(HomePage),
+        error => console.log(error.message)
+      );
+  }
+
+  loginWithFacebook() {
+    this.auth.signInWithFacebook()
+      .then(
+        () => this.nav.setRoot(HomePage),
+        error => console.log(error.message)
+      );
+  }
+
+  loginWithTwitter() {
+    this.auth.signInWithTwitter()
+      .then(
+        () => this.nav.setRoot(HomePage),
+        error => console.log(error.message)
+      );
   }
 
 }

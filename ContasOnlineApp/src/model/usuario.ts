@@ -7,9 +7,9 @@ export class Model {
 }
 
 export class Usuario extends Model {
-    codigo: number;
-    nome: string;
-    email: string;
-    login: string;
-    senha: string;
+    nomeCompleto: string; 
+    email: string; 
+    senha: string; 
+    tokenOneSignal: string;
+    fireBaseUserUID: string;
 }

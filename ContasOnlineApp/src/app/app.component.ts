@@ -2,16 +2,13 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, AlertController  } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-
 import { LoginPage } from '../pages/login/login';
 import { CartoesPage } from '../pages/cartoes/cartoes';
 import { BancosPage } from '../pages/bancos/bancos';
 import { DespesasPage } from '../pages/despesas/despesas';
-import { OneSignal } from '@ionic-native/onesignal';
-import { isCordovaAvailable } from '../common/available';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -20,7 +17,7 @@ import { isCordovaAvailable } from '../common/available';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   static APP_ID: string = "61d48b18-8508-4578-a8ce-148a6347a98a";
   static SENDER_ID: string = "963726746006";
@@ -28,8 +25,14 @@ export class MyApp {
 
   pages: Array<{title: string, component: any, icon : string}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private oneSignal: OneSignal,private alertCtrl: AlertController) {
-    this.initializeApp();
+  constructor(
+    public platform: Platform, 
+    public statusBar: StatusBar, 
+    public splashScreen: SplashScreen,
+    private auth: AuthService) 
+  {
+    
+      this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -50,32 +53,21 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-
-      this.handlerNotifications();
-       
+     
+      this.auth.afAuth.authState
+      .subscribe(
+        user => {
+          if (user) {
+            this.rootPage = HomePage;
+          } else {
+            this.rootPage = LoginPage;
+          }
+        },
+        () => {
+          this.rootPage = LoginPage;
+        }
+      );
     });
-
-  }
-
-  private handlerNotifications() {
-
-    if (isCordovaAvailable())
-    {
-        this.oneSignal.startInit(MyApp.APP_ID, MyApp.SENDER_ID);
-
-        this.oneSignal.handleNotificationOpened()
-            .subscribe(jsonData => {
-              let alert = this.alertCtrl.create({
-                title: jsonData.notification.payload.title,
-                subTitle: jsonData.notification.payload.body,
-                buttons: ['OK']
-              });
-              alert.present();
-              console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
-            });
-        this.oneSignal.endInit();
-      }
-
   }
 
   openPage(page) {
@@ -83,4 +75,15 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+  login() {
+    this.auth.signOut();
+    this.nav.setRoot(LoginPage);
+  }
+
+  logout() {
+    this.auth.signOut();
+    this.nav.setRoot(HomePage);
+  }
+
 }

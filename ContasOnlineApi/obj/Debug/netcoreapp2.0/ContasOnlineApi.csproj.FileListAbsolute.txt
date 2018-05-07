@@ -11,3 +11,5 @@ C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\bin\Debug\
 C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\bin\Debug\netcoreapp2.0\ContasOnlineModel.pdb
 C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\obj\Debug\netcoreapp2.0\ContasOnlineApi.dll
 C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\obj\Debug\netcoreapp2.0\ContasOnlineApi.pdb
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\bin\Debug\netcoreapp2.0\OneSignal.SDK.dll
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\bin\Debug\netcoreapp2.0\OneSignal.SDK.pdb

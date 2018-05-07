@@ -36,6 +36,15 @@ namespace ContasOnlineApi
                 Options.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
                 Options.Database = Configuration.GetSection("MongoConnection:Database").Value;
             });
+
+            //Configuracao dos Onesignal
+            services.Configure<OneSignalSettings>(Options =>
+            {
+                Options.ApiKey = Configuration.GetSection("OneSignal:ApiKey").Value;
+                Options.RestKey = Configuration.GetSection("OneSignal:RestKey").Value;
+                Options.RestUrl = Configuration.GetSection("OneSignal:RestUrl").Value;
+            });
+
             
             //Configura os Cors
             services.AddCors(options =>
