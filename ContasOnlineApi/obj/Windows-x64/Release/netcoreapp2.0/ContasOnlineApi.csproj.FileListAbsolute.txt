@@ -1,0 +1,14 @@
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\bin\Windows-x64\Release\netcoreapp2.0\ContasOnlineApi.deps.json
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\bin\Windows-x64\Release\netcoreapp2.0\ContasOnlineApi.runtimeconfig.json
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\bin\Windows-x64\Release\netcoreapp2.0\ContasOnlineApi.runtimeconfig.dev.json
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\bin\Windows-x64\Release\netcoreapp2.0\ContasOnlineApi.dll
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\bin\Windows-x64\Release\netcoreapp2.0\ContasOnlineApi.pdb
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\bin\Windows-x64\Release\netcoreapp2.0\ContasOnlineModel.dll
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\bin\Windows-x64\Release\netcoreapp2.0\OneSignal.SDK.dll
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\bin\Windows-x64\Release\netcoreapp2.0\ContasOnlineModel.pdb
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\bin\Windows-x64\Release\netcoreapp2.0\OneSignal.SDK.pdb
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\obj\Windows-x64\Release\netcoreapp2.0\ContasOnlineApi.csproj.CoreCompileInputs.cache
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\obj\Windows-x64\Release\netcoreapp2.0\ContasOnlineApi.AssemblyInfoInputs.cache
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\obj\Windows-x64\Release\netcoreapp2.0\ContasOnlineApi.AssemblyInfo.cs
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\obj\Windows-x64\Release\netcoreapp2.0\ContasOnlineApi.dll
+C:\Desenvolvimento\DevonIT\Contas Online\ContasOnline\ContasOnlineApi\obj\Windows-x64\Release\netcoreapp2.0\ContasOnlineApi.pdb

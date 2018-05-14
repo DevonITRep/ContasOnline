@@ -31,11 +31,12 @@ namespace ContasOnlineApi.Services
 
         public IMongoCollection<Banco> bancos => _database.GetCollection<Banco>("Bancos");
         public IMongoCollection<Cartao> cartoes => _database.GetCollection<Cartao>("Cartoes");
-        public IMongoCollection<Conta> contas => _database.GetCollection<Conta>("Contas");
+        public IMongoCollection<ContaBancaria> contas => _database.GetCollection<ContaBancaria>("Contas");
         public IMongoCollection<Categoria> categorias => _database.GetCollection<Categoria>("Categorias");
         public IMongoCollection<Despesa> despesas => _database.GetCollection<Despesa>("Despesas");
         public IMongoCollection<Usuario> usuarios => _database.GetCollection<Usuario>("Usuarios");
-        
+        public IMongoCollection<TipoDeContaBancaria> tiposDeContasBancarias => _database.GetCollection<TipoDeContaBancaria>("TiposDeContasBancarias");
+        public IMongoCollection<ContaApp> contasApp => _database.GetCollection<ContaApp>("ContasApp");
 
     }
 }

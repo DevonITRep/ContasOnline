@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ContasOnlineApi.Services;
+﻿using ContasOnlineApi.Services;
 using ContasOnlineModel.Modelo;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using OneSignal.SDK;
 using OneSignal.SDK.Resources.Devices;
 using OneSignal.SDK.Serializers;
 using RestSharp;
+using System;
+using System.Threading.Tasks;
 
 namespace ContasOnlineApi.Controllers
 {

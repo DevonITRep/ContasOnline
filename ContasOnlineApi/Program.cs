@@ -20,6 +20,8 @@ namespace ContasOnlineApi
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseIISIntegration()
+                .UseKestrel()
                 .Build();
     }
 }

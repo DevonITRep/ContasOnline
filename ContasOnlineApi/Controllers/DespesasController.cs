@@ -1,15 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ContasOnlineApi.Services;
 using ContasOnlineModel.Modelo;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ContasOnlineApi.Controllers
 {
@@ -17,12 +15,8 @@ namespace ContasOnlineApi.Controllers
     [Route("api/[controller]")]
     public class DespesasController : Controller
     {
-        private MongoClient client;
-        private IMongoDatabase db;
-
         private readonly MongoRepository _repository = null;
-
-
+        
         public DespesasController(IOptions<MongoDBSettings> settings)
         {
             _repository = new MongoRepository(settings);
@@ -53,6 +47,9 @@ namespace ContasOnlineApi.Controllers
         public async Task Post([FromBody] JObject objData)
         {
             Despesa novaDespesa = objData.ToObject<Despesa>();
+            //Atualiza Data De Cadastro
+            novaDespesa.DataDeCadastro = DateTime.Now;
+
             //inserting data
             await _repository.despesas.InsertOneAsync(novaDespesa);
 
@@ -71,7 +68,6 @@ namespace ContasOnlineApi.Controllers
                 return false;
             var update = Builders<Despesa>.Update
                                           .Set(x => x.ContaDeSaida, edicaoDespesa.ContaDeSaida)
-                                          .Set(x => x.DataDeCadastro, DateTime.Now)
                                           .Set(x => x.DespesaParcelada, edicaoDespesa.DespesaParcelada)
                                           .Set(x => x.Observacao, edicaoDespesa.Observacao)
                                           .Set(x => x.QuantidadeDeParcelas, edicaoDespesa.QuantidadeDeParcelas)

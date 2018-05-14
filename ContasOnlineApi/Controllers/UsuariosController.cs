@@ -1,17 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ContasOnlineApi.Services;
 using ContasOnlineModel.Modelo;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using OneSignal.SDK;
-using OneSignal.SDK.Resources.Devices;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ContasOnlineApi.Controllers
 {
@@ -19,13 +15,8 @@ namespace ContasOnlineApi.Controllers
     [Route("api/[controller]")]
     public class UsuariosController : Controller
     {
-        private MongoClient client;
-        private IMongoDatabase db;
-
         private readonly MongoRepository _repository = null;
         private readonly OneSignalSettings _oneSignalSettings = null;
-
-
 
         public UsuariosController(IOptions<MongoDBSettings> settings, IOptions<OneSignalSettings> settingsOneSignal)
         {
@@ -53,6 +44,16 @@ namespace ContasOnlineApi.Controllers
             
         }
 
+
+        [HttpGet()]
+        [Route("api/[controller]/getfirebaseuid/{id}")]
+        public async Task<Usuario> GetFireBaseUID(String fireBaseUid)
+        {
+            var filter = Builders<Usuario>.Filter.Eq("FireBaseUserUID", fireBaseUid);
+            return await _repository.usuarios.Find(filter).FirstOrDefaultAsync();
+
+        }
+
         // POST api/values
         [HttpPost]
         public async Task Post([FromBody] JObject objData)
@@ -67,6 +68,17 @@ namespace ContasOnlineApi.Controllers
             {
                 //inserting data
                 await _repository.usuarios.InsertOneAsync(usuario);
+
+                //Criando uma nova conta de APP para o usuario
+                ContaApp novaContaApp = new ContaApp();
+                novaContaApp.Ativa = true;
+                novaContaApp.DataDeCadastro = DateTime.Now;
+                novaContaApp.DataDeUltimoAcesso = DateTime.Now;
+                novaContaApp.UsuarioDono = usuario;
+                
+                //Criando uma nova conta para o APP
+                await _repository.contasApp.InsertOneAsync(novaContaApp);
+
             }
             else {
                 var update = Builders<Usuario>.Update

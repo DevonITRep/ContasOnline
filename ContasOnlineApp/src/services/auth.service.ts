@@ -2,15 +2,21 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import AuthProvider = firebase.auth.AuthProvider;
+import { Firebase } from '@ionic-native/firebase';
 
 @Injectable()
 export class AuthService {
 	private user: firebase.User;
 
-	constructor(public afAuth: AngularFireAuth) {
+	constructor(public afAuth: AngularFireAuth,public firebaseNative: Firebase) {
 		afAuth.authState.subscribe(user => {
 			this.user = user;
 		});
+	}
+
+	getToken(v_platform) {
+		
+		return this.user.getToken(true);
 	}
 
 	signInWithEmail(credentials) {
@@ -64,7 +70,6 @@ export class AuthService {
 			});
 		}
 	}
-
 
 
 	get authenticated(): boolean {

@@ -8,7 +8,6 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { Facebook } from '@ionic-native/facebook';
-import { CartoesPage } from '../pages/cartoes/cartoes';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataService } from '../services/dataService';
@@ -17,7 +16,6 @@ import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ng2-currency-mask/src/currency-mask.config";
 import { CurrencyPipe } from '@angular/common';
-import { BancosPage } from '../pages/bancos/bancos'; 
 import { DespesasPage } from '../pages/despesas/despesas';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {CustomInterceptor} from '../../src/services/dataService';
@@ -35,6 +33,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { firebaseConfig } from '../config';
 import { AuthService } from '../services/auth.service';
+import { LoadingService } from '../services/loading-service';
+import { NovoCartaoPage } from '../pages/novo-cartao/novo-cartao';
+import { CartoesPage } from '../pages/cartoes/cartoes';
 
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
@@ -54,8 +55,6 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     HomePage,
     ListPage,
     LoginPage,
-    CartoesPage,
-    BancosPage,
     DespesasPage,
     NotificationsPage,
     SearchLocationPage,
@@ -63,7 +62,9 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     TripsPage,
     SettingsPage,
     CheckoutTripPage,
-    RegisterPage
+    RegisterPage,
+    NovoCartaoPage,
+    CartoesPage
   ],
   imports: [
     BrowserModule,
@@ -82,8 +83,6 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     HomePage,
     ListPage,
     LoginPage,
-    CartoesPage,
-    BancosPage,
     DespesasPage,
     NotificationsPage,
     SearchLocationPage,
@@ -91,7 +90,9 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     TripsPage,
     SettingsPage,
     CheckoutTripPage,
-    RegisterPage
+    RegisterPage,
+    NovoCartaoPage,
+    CartoesPage
   ],
   providers: [
 	  UsuarioService,
@@ -110,8 +111,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     Device,
     Firebase,
     AngularFireAuth,
-    AuthService
-
+    AuthService,
+    LoadingService
   ]
 })
 export class AppModule {}

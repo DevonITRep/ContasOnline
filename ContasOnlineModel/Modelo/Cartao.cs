@@ -17,5 +17,9 @@ namespace ContasOnlineModel.Modelo
         public String Bandeira { get; set; }
         public Int32 Vencimento { get; set; }
         public String NomeDoCartao { get; set; }
+        public DateTime DataDeCadastro { get; set; }
+        public Boolean Ativo { get; set; }
+        public String UsuarioDono { get; set; }
+        public ContaApp ContaApp { get; set; }
     }
 }

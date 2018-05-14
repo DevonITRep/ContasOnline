@@ -12,6 +12,10 @@ namespace ContasOnlineModel.Modelo
         [BsonRepresentation(BsonType.ObjectId)]
         public String _id { get; set; }
         public string Nome { get; set; }
+        public DateTime DataDeCadastro { get; set; }
+        public Boolean Ativo { get; set; }
+        public String UsuarioDono { get; set; }
+        public ContaApp ContaApp { get; set; }
 
     }
 }

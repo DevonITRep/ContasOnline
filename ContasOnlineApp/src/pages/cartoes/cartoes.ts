@@ -4,6 +4,9 @@ import { DataService } from '../../services/dataService';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { ToastController } from 'ionic-angular';
 import { CurrencyPipe } from '@angular/common';
+import { Cartao } from '../../model/cartao';
+import { NovoCartaoPage } from '../novo-cartao/novo-cartao';
+
 /**
  * Generated class for the CartoesPage page.
  *
@@ -17,28 +20,35 @@ import { CurrencyPipe } from '@angular/common';
   templateUrl: 'cartoes.html',
 })
 export class CartoesPage {
-  
-  public cartoes: any[];
+ 
+  public cartoes: Cartao[];
   
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private _dataService: DataService,
+    private _dataServiceCartao: DataService,
     private _slimLoadingBarService: SlimLoadingBarService,
     private _toastCtrl: ToastController,
-    private currencyPipe: CurrencyPipe, ) {
-      _dataService.setServiceApiName('Cartoes');
+    private currencyPipe: CurrencyPipe, 
+    private toast: ToastController) {
+   
+      _dataServiceCartao.setServiceApiName('Cartoes');
+   
   }
 
   getCurrency(amount: number) {
     return this.currencyPipe.transform(amount, 'EUR', true, '1.2-2');
   }
 
+  novoCartaoDeCredito(){
+    this.navCtrl.setRoot(NovoCartaoPage)
+  }
+
   ionViewDidLoad() {
     this._slimLoadingBarService.start();
-    this._dataService
+    this._dataServiceCartao
             .getAll<any[]>()
-            .subscribe((data: any[]) => this.cartoes = data,
+            .subscribe((data: Cartao[]) => this.cartoes = data,
             error => () => {
               let toast = this._toastCtrl.create({
                   message: 'Erro encontrado !!!',
@@ -54,8 +64,7 @@ export class CartoesPage {
                   position: 'bottom'
                 });
                 
-              toast.present();
-              console.log('Dados :=' + this.cartoes[0].bandeira);    
+              toast.present();    
               this._slimLoadingBarService.complete();
             });
   }

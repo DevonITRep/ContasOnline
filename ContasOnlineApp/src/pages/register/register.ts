@@ -8,6 +8,7 @@ import { Usuario } from '../../model/usuario';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import * as firebase from 'firebase/app';
+import { LoadingService } from '../../services/loading-service'
 
 
 @Component({
@@ -37,7 +38,9 @@ export class RegisterPage {
     private _dataServiceUsuario: DataService,
     fb: FormBuilder,
     private navCtrl: NavController,
-    private auth: AuthService) 
+    private auth: AuthService,
+    private loading : LoadingService
+  ) 
   {
      //Instancia uma nova despesa
     this.model = new Usuario();
@@ -80,6 +83,7 @@ export class RegisterPage {
 			password: data.password
     };
     
+    this.loading.showLoader('Gravando as informações, aguarde !!');
     
 		this.auth.signUp(credentials).then((userInfo: firebase.User) => {
         
@@ -88,14 +92,26 @@ export class RegisterPage {
         this.model.nomeCompleto = data.fullname;
         this.model.senha = data.password;
         this.model.fireBaseUserUID = userInfo.uid;
+        this.model.tokenOneSignal = '';
         
         //Cria um novo usuario na Base do ContasOnline
         this._dataServiceUsuario.add(this.model).subscribe(
-          () => this.navCtrl.setRoot(HomePage)
+          (response) => {}, 
+          (error) =>{}, 
+          () => {
+            
+            console.log('cadastro realizado com sucesso !!');
+            this.loading.hideLoader();
+            this.navCtrl.setRoot(HomePage)
+          }
         )
       }  
      ,
-			error => this.signupError = error.message
+      error => { 
+        this.signupError = error.message
+        console.log('cadastro realizado com sucesso !!');
+        this.loading.hideLoader();
+      }
 		);
   }
 

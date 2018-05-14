@@ -17,11 +17,8 @@ namespace ContasOnlineApi.Controllers
     [Route("api/[controller]")]
     public class CartoesController : Controller
     {
-        private MongoClient client;
-        private IMongoDatabase db;
-
+        
         private readonly MongoRepository _repository = null;
-
 
         public CartoesController(IOptions<MongoDBSettings> settings)
         {
@@ -53,6 +50,8 @@ namespace ContasOnlineApi.Controllers
         public async Task Post([FromBody] JObject objData)
         {
             Cartao novoCartao = objData.ToObject<Cartao>();
+            //Atualiza Data De Cadastro
+            novoCartao.DataDeCadastro = DateTime.Now;
             //inserting data
             await _repository.cartoes.InsertOneAsync(novoCartao);
 

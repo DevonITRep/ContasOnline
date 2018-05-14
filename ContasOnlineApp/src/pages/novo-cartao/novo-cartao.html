@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Novo Cartão de Crédito
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding id="page5">
+  <form id="despesa-form1">
+    <ion-item id="despesa-toggle2">
+      <ion-label>
+        Limite
+      </ion-label>
+      <ion-input type="number" placeholder="Limite de Crédito" [(ngModel)]="model.Limite" [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
+    <div class="spacer" style="width:300px;height:13px;" id="despesa-spacer1" [hidden]="!utilizaQuantidadeDeParcelas"></div>
+    <ion-item id="despesa-toggle2">
+      <ion-label>
+        Bandeira
+      </ion-label>
+      <ion-input type="text" placeholder="Bandeira" [(ngModel)]="model.Bandeira" [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
+    <div class="spacer" style="width:300px;height:13px;" id="despesa-spacer1" [hidden]="!utilizaQuantidadeDeParcelas"></div>
+    <ion-item id="despesa-toggle2">
+      <ion-label>
+        Vencimento
+      </ion-label>
+      <ion-input type="number" placeholder="Vencimento" [(ngModel)]="model.Vencimento" [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
+    <div class="spacer" style="width:300px;height:13px;" id="despesa-spacer1" [hidden]="!utilizaQuantidadeDeParcelas"></div>
+    <ion-item id="despesa-toggle2">
+      <ion-label>
+        Nome Do Cartão
+      </ion-label>
+      <ion-input type="text" placeholder="Nome Do Cartão" [(ngModel)]="model.NomeDoCartao" [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
+    <button id="despesa-button2" ion-button color="positive" block (click)="savar()" >
+      Salvar Cartão
+    </button>
+  </form>
+</ion-content>

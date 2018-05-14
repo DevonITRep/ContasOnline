@@ -4,7 +4,7 @@ import {HomePage} from "../home/home";
 import {RegisterPage} from "../register/register";
 import { AuthService } from '../../services/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { DataService } from '../../services/dataService';
 
 @Component({
   selector: 'page-login',
@@ -21,9 +21,10 @@ export class LoginPage {
     public menu: MenuController, 
     public toastCtrl: ToastController,
     private auth: AuthService,
-    fb: FormBuilder) 
+    fb: FormBuilder,
+    private _dataServiceUsuario: DataService) 
   {
-  
+    this._dataServiceUsuario.setServiceApiName('Usuarios');
     this.menu.swipeEnable(false);
   
     this.loginForm = fb.group({
@@ -52,7 +53,9 @@ export class LoginPage {
 		};
 		this.auth.signInWithEmail(credentials)
 			.then(
-				() => this.nav.setRoot(HomePage),
+				()=> {
+          this.nav.setRoot(HomePage)
+        },
 				error => this.loginError = error.message
 			);
 	}

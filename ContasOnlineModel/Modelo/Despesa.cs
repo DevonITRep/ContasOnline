@@ -15,11 +15,12 @@ namespace ContasOnlineModel.Modelo
         public Cartao CartaoUtilizado { get; set; }
         public Boolean DespesaParcelada { get; set; }
         public Int32 QuantidadeDeParcelas { get; set; }
-        public Conta ContaDeSaida { get; set; }
+        public ContaBancaria ContaDeSaida { get; set; }
         public Categoria Categoria { get; set; }
         public Decimal Valor { get; set; }
         public String Observacao { get; set; }
         public DateTime DataDeCadastro { get; set; }
-
+        public String UsuarioDono { get; set; }
+        public ContaApp ContaApp { get; set; }
     }
 }

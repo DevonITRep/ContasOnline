@@ -9,6 +9,7 @@ import { CartoesPage } from '../pages/cartoes/cartoes';
 import { BancosPage } from '../pages/bancos/bancos';
 import { DespesasPage } from '../pages/despesas/despesas';
 import { AuthService } from '../services/auth.service';
+import { NovoCartaoPage } from '../pages/novo-cartao/novo-cartao';
 
 
 @Component({
@@ -42,6 +43,7 @@ export class MyApp {
       { title: 'Cartões', component: CartoesPage, icon: 'partly-sunny' },
       { title: 'Bancos', component: BancosPage, icon: 'partly-sunny' },
       { title: 'Despesas', component: DespesasPage, icon: 'partly-sunny' },
+      { title: 'Novo Cartão', component: NovoCartaoPage, icon: 'partly-sunny' },
      
     ];
 
@@ -67,6 +69,7 @@ export class MyApp {
           this.rootPage = LoginPage;
         }
       );
+
     });
   }
 
