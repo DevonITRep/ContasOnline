@@ -1,6 +1,6 @@
 {
   "name": "ContasOnlineApp",
-  "app_id": "",
+  "app_id": "abc6713f",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
