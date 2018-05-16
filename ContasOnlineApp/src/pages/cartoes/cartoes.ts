@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DataService } from '../../services/dataService';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
-import { ToastController } from 'ionic-angular';
 import { CurrencyPipe } from '@angular/common';
 import { Cartao } from '../../model/cartao';
 import { NovoCartaoPage } from '../novo-cartao/novo-cartao';
+import { DataService } from '../../services/dataService';
+
+
 
 /**
  * Generated class for the CartoesPage page.

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DataService } from '../../services/dataService';
-import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { ToastController } from 'ionic-angular';
 import { CurrencyPipe } from '@angular/common';
 import { Cartao } from '../../model/cartao';
@@ -27,8 +26,6 @@ export class NovoCartaoPage {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     private _dataServiceCartao: DataService,
-    private _slimLoadingBarService: SlimLoadingBarService,
-    private _toastCtrl: ToastController,
     private currencyPipe: CurrencyPipe, 
     private toast: ToastController,
     private loading : LoadingService) {

@@ -1,0 +1,20 @@
+<!-- settings.html -->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Atualização</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Informações da Atualização</h3>
+
+  <p>Estou me conectando em {{ deployChannel }}.</p>
+
+  <p>Progresso do Download {{ downloadProgress }} / 100</p>
+
+  <ion-item>
+    <ion-label>Opt in to Beta Features</ion-label>
+    <ion-toggle [(ngModel)]="isBeta" (ionChange)="toggleBeta()"></ion-toggle>
+  </ion-item>
+
+</ion-content>

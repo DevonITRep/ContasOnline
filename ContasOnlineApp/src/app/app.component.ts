@@ -10,7 +10,7 @@ import { BancosPage } from '../pages/bancos/bancos';
 import { DespesasPage } from '../pages/despesas/despesas';
 import { AuthService } from '../services/auth.service';
 import { NovoCartaoPage } from '../pages/novo-cartao/novo-cartao';
-
+import { AtualizacaoPage } from '../pages/atualizacao/atualizacao';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +18,7 @@ import { NovoCartaoPage } from '../pages/novo-cartao/novo-cartao';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = AtualizacaoPage;
 
   static APP_ID: string = "61d48b18-8508-4578-a8ce-148a6347a98a";
   static SENDER_ID: string = "963726746006";

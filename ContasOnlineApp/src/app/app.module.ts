@@ -15,7 +15,7 @@ import { Configuration } from '../app/app.constants';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ng2-currency-mask/src/currency-mask.config";
-import { CurrencyPipe } from '@angular/common';
+//import { CurrencyPipe } from '@angular/common';
 import { DespesasPage } from '../pages/despesas/despesas';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {CustomInterceptor} from '../../src/services/dataService';
@@ -36,6 +36,7 @@ import { AuthService } from '../services/auth.service';
 import { LoadingService } from '../services/loading-service';
 import { NovoCartaoPage } from '../pages/novo-cartao/novo-cartao';
 import { CartoesPage } from '../pages/cartoes/cartoes';
+import { AtualizacaoPage } from '../pages/atualizacao/atualizacao';
 
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
@@ -64,7 +65,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     CheckoutTripPage,
     RegisterPage,
     NovoCartaoPage,
-    CartoesPage
+    CartoesPage,
+    AtualizacaoPage
   ],
   imports: [
     BrowserModule,
@@ -92,7 +94,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     CheckoutTripPage,
     RegisterPage,
     NovoCartaoPage,
-    CartoesPage
+    CartoesPage,
+    AtualizacaoPage
   ],
   providers: [
 	  UsuarioService,
@@ -107,7 +110,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     SlimLoadingBarService,
     { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
     { provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true },
-    CurrencyPipe,
+    //CurrencyPipe,
     Device,
     Firebase,
     AngularFireAuth,
